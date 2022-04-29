@@ -1,0 +1,181 @@
+* {
+box-sizing: border-box;
+}
+body {
+font-family: Roboto, Helvetica, sans-serif;
+}
+
+button[disabled], button[disabled]:hover {
+	border: 1px solid #999999;
+	background-color: #cccccc;
+	color: #666666;
+}
+
+.txt-vpn-enabled {
+}
+
+.txt-vpn-disabled {
+	color: white;
+	background-color: black;
+}
+
+/* Fixer le bouton sur le côté gauche de la page */
+.open-btn {
+display: flex;
+justify-content: left;
+}
+
+/* Stylez et fixez le bouton sur la page */
+.open-button {
+background-color: #ffA833;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+opacity: 0.8;
+padding: 5px 5px;
+width: 100%;
+}
+
+.action-button {
+	background-color: #8888FF;
+	opacity : 1;
+}
+
+.icon-button {
+background-color: #8888FF;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+opacity: 0.7;
+padding: 1px 1px;
+}
+
+.icon-button:hover {
+	background-color: #BBBBFF;
+	opacity: 0.9;
+}
+
+/* Positionnez la forme Popup */
+.popup {
+position: relative;
+text-align: center;
+width: 100%;
+}
+/* Masquez la forme Popup */
+.popup-form {
+display: none;
+position: fixed;
+left: 45%;
+top:5%;
+transform: translate(-45%,5%);
+border: 2px solid #666;
+z-index: 9;
+}
+/* Styles pour le conteneur de forme */
+.popup-form-container {
+max-width: 400px;
+padding: 20px;
+background-color: #fff;
+}
+.popup-form-span {
+width: 800px;
+padding: 20px;
+background-color: #fff;
+}
+/* Largeur complète pour les champs de saisie */
+.popup-form-container input[type=text], .form-container input[type=password] {
+width: 100%;
+padding: 10px;
+margin: 5px 0 5px 0;
+border: none;
+background: #eee;
+}
+/*Quand les entrées sont concentrées, faites quelque chose */
+.popup-form-container input[type=text]:focus, .form-container input[type=password]:focus {
+background-color: #ddd;
+outline: none;
+}
+/* Stylez le bouton de connexion*/
+.popup-form .btn {
+background-color: #8ebf42;
+color: #fff;
+padding: 12px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-top:5px;
+margin-bottom:5px;
+opacity: 0.8;
+}
+/* Stylez le bouton pour annuler */
+.popup-form .cancel {
+background-color: #cc0000;
+}
+/* Planez les effets pour les boutons */
+.popup-form .btn:hover:enabled, .open-button:hover {
+	background-color: #0088FF;
+	opacity: 1;
+}
+
+.delete-button {
+background-color: #000000;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+opacity: 0.5;
+padding: 5px 5px;
+justify-content: center;
+width: 100%;
+}
+.delete-button:hover {
+background-color: #FF0000;
+opacity: 1;
+}
+
+.inventory-popup {
+position: relative;
+text-align: center;
+width: 100%;
+}
+
+.inventory-popup-form {
+display: none;
+position: fixed;
+left: 10px;
+right: 10px;
+top: 10px;
+bottom: 10px;
+border: 2px solid #666;
+background-color: #fff;
+z-index: 9;
+}
+
+.inventory-popup-form-span {
+padding: 10px;
+}
+
+.inventory-popup-form .btn {
+background-color: #8ebf42;
+color: #fff;
+padding: 12px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-top:5px;
+margin-bottom:5px;
+opacity: 0.8;
+}
+
+.inventory-popup-form .cancel {
+background-color: #cc0000;
+opacity: 0.5;
+}
+
+.inventory-popup-form .btn:hover, .open-button:hover {
+background-color: #0088FF;
+opacity: 1;
+}
+

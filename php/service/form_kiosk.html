@@ -1,0 +1,45 @@
+<div class="popup">
+	<div class="popup-form" id="popup-form-kiosk">
+		<div class="popup-form-container">
+			<h2>Panneau de Contrôle du Kiosk:</h2>
+			<label for="cn"><strong>Full CN: </strong></label>
+			<input type="text" placeholder="Complete CN" name="cn_name" id="cn_kiosk" required><br>
+			<label for="action_todo"><strong>Requested action:</strong></label><br>
+			<center><table border=1>
+				<colgroup>
+					<col span="1" style="width: 80%;">
+					<col span="1" style="width: 10%;">
+					<col span="1" style="width: 10%;">
+				</colgroup>
+				<tr><td>Action / Display:</td><td>#1</td><td>#2</td></tr>
+				<tr><td>Refresh</td>
+					<td><button class="open-button" onclick="doKiosk('refresh',1)"><center><img src='icons/refresh.svg' alt='Refresh1' width='32' height='32'/></center></button></td>
+					<td><button class="open-button" onclick="doKiosk('refresh',2)"><center><img src='icons/refresh.svg' alt='Refresh2' width='32' height='32'/></center></button></td></tr>
+				<tr><td>Restart<br>
+					<input type="checkbox" id="RestartClearCache" checked>Clear Cache</input> - <input type="checkbox" id="RestartClearData" >Clear Data</input></td>
+					<td><button class="open-button" onclick="doKiosk('restart',1)"><center><img src='icons/restart.svg' alt='Restart1' width='32' height='32'/></center></button></td>
+					<td><button class="open-button" onclick="doKiosk('restart',2)"><center><img src='icons/restart.svg' alt='Restart2' width='32' height='32'/></center></button></td></tr>
+				<tr><td>Take Control</td>
+					<td><a id='frm_kiosk_vnc_1' href='' target='_blank'><button class="open-button"><center><img src='icons/computer.svg' alt='VNC1' width='32' height='32'/></center></button></a></td>
+					<td><a id='frm_kiosk_vnc_2' href='' target='_blank'><button class="open-button"><center><img src='icons/computer.svg' alt='VNC2' width='32' height='32'/></center></button></a></td></tr>
+				<tr><td>Display 1 :<input type="text" placeholder="URL to set" name="kiosk_url" id="frm_kiosk_url_1"><br>
+						<input type="checkbox" id="Disp1ModeSlider">Mode Slider</input> - <input type="checkbox" id="Disp1Incognito" checked>Mode Incognito</input><br>
+						<input type="checkbox" id="Disp1ClearCache" checked>Clear Cache</input> - <input type="checkbox" id="Disp1ClearData" checked>Clear Data</input></td>
+					<td>
+						<button class="open-button"   onclick="doKiosk('setUrl',1)">GO</button><br><br>
+						<button class="open-button"   onclick="doKiosk('preview',1)">Preview</button></td>
+					<td></td>
+				</tr>
+				<tr><td>Display 2 :<input type="text" placeholder="URL to set" name="kiosk_url" id="frm_kiosk_url_2"><br>
+						<input type="checkbox" id="Disp2ModeSlider">Mode Slider</input> - <input type="checkbox" id="Disp2Incognito" checked>Mode Incognito</input><br>
+						<input type="checkbox" id="Disp2ClearCache" checked>Clear Cache</input> - <input type="checkbox" id="Disp2ClearData" checked>Clear Data</input></td>
+					<td></td>
+					<td>
+						<button class="open-button"   onclick="doKiosk('setUrl',2)">GO</button><br><br>
+						<button class="open-button"   onclick="doKiosk('preview',2)">Preview</button></td>
+				</tr>
+				</table></center>
+		</div>
+		<button class="btn cancel" onclick="closeKiosk()">Fermer</button>
+	</div>
+</div>

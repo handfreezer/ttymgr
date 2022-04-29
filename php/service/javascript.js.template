@@ -1,0 +1,165 @@
+<script type="text/javascript">
+function deleteTty(cn) {
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", "service_delete.php?cn="+cn, false ); // false for synchronous request
+	xmlHttp.send( null );
+	alert(xmlHttp.responseText);
+	document.location.reload();
+}
+
+function openGraph(cn,panelid) {
+	var span = document.getElementById("span_iframe_monitoring")
+	span.innerHTML="<iframe src='https://[URL]/ttymgr/grafana/d-solo/Ev-OH4kRk/tty-stupid-monitoring?orgId=2&refresh=1m&var-ttycn="+cn+"&kiosk&panelId="+panelid+"' width='800' height='400' frameborder='0'></iframe>";
+	document.getElementById("popup-form-monitoring").style.display = "block";
+}
+
+function openGraphMultiPanel(cn,...panelids) {
+	var span = document.getElementById("span_iframe_monitoring")
+	var iframes = "";
+	for (panelid of panelids) {
+		iframes += "<iframe src='https://[URL]/ttymgr/grafana/d-solo/Ev-OH4kRk/tty-stupid-monitoring?orgId=2&refresh=1m&var-ttycn="+cn+"&kiosk&panelId="+panelid+"' width='800' height='400' frameborder='0'></iframe><br>";
+	}
+	span.innerHTML = iframes;
+	document.getElementById("popup-form-monitoring").style.display = "block";
+}
+
+function closeGraph() {
+	document.getElementById("popup-form-monitoring").style.display = "none";
+	var span = document.getElementById("span_iframe_monitoring");
+	while( span.firstChild ) {
+		span.removeChild( span.firstChild );
+	}
+}
+
+function openInventoryRequest(cn) {
+	openInventoryLast(cn, 1);
+}
+
+function openInventoryLast(cn,request=0) {
+	var span = document.getElementById("span_iframe_inventory")
+	var h = window.innerHeight * 99/100;
+	var v = window.innerWidth * 99/100;
+	//span.innerHTML="<iframe src='/ttymgr/service/inventory.php?cn="+cn+"&frame=last' width='"+v+"px' height='"+h+"px' frameborder='0'></iframe>";
+	span.innerHTML="<iframe src='/ttymgr/service/inventory.php?cn="+cn+"&request="+request+"&frame=last' width='99%' height='93%' frameborder='0'></iframe>";
+	document.getElementById("popup-form-inventory").style.display = "block";
+}
+
+function closeInventory() {
+	document.getElementById("popup-form-inventory").style.display = "none";
+	var span = document.getElementById("span_iframe_inventory");
+	while( span.firstChild ) {
+		span.removeChild( span.firstChild );
+	}
+}
+
+function openLogs(cn_name) {
+	//var xmlHttp = new XMLHttpRequest();
+	//xmlHttp.open( "GET", "service/action.php?action=getLogs&cn="+cn_name, false ); // false for synchronous request
+	//xmlHttp.send( null );
+	//document.getElementById("id-popup-form-container").textContent = xmlHttp.responseText;
+	tableLogs.setData("service/action.php?cn="+cn_name+"&action=getLogs");
+	document.getElementById("popup-form-logs").style.display = "block";
+}
+
+function closeLogs() {
+	document.getElementById("popup-form-logs").style.display = "none";
+	tableLogs.clearData();
+}
+
+function openActions(cn_name,vpn_access_state,snmpd_installed = 0) {
+	document.getElementById("cn_name").value = cn_name;
+	if ( 0 == vpn_access_state ) {
+		document.getElementById("btn-vpn-access").textContent = "Enable VPN";
+		document.getElementById("btn-vpn-access").setAttribute('onclick',  'doAction("vpn_access_enable");');
+	} else {
+		document.getElementById("btn-vpn-access").textContent = "Disable VPN";
+		document.getElementById("btn-vpn-access").setAttribute('onclick',  'doAction("vpn_access_disable");');
+	}
+	if ( 0 == snmpd_installed ) {
+		document.getElementById("btn-snmpd-wifi").disabled = true;
+		document.getElementById("btn-snmpd-gps").disabled = true;
+	} else {
+		document.getElementById("btn-snmpd-wifi").disabled = false;
+		document.getElementById("btn-snmpd-gps").disabled =false;
+	}
+	document.getElementById("popup-form-actions").style.display = "block";
+}
+
+function closeActions() {
+	document.getElementById("cn_name").value = "";
+	document.getElementById("popup-form-actions").style.display = "none";
+}
+
+function doAction(action) {
+	var cn = document.getElementById("cn_name").value;
+	//alert("CN = " + cn + "\nAction: " + action);
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", "service/action.php?action="+action+"&cn="+cn, false ); // false for synchronous request
+	xmlHttp.send( null );
+	alert(xmlHttp.responseText);
+	document.location.reload();
+}
+
+function openKiosk(cn_name, u1, u2, vnc1, vnc2, slider1=false, incognito1=true, cc1=true, cd1=true, slider2=false, incognito2=true, cc2=true, cd2=true) {
+	document.getElementById("cn_kiosk").value = cn_name;
+	document.getElementById("frm_kiosk_url_1").value = u1;
+	document.getElementById("frm_kiosk_url_2").value = u2;
+	document.getElementById("frm_kiosk_vnc_1").href = vnc1;
+	document.getElementById("frm_kiosk_vnc_2").href = vnc2;
+	document.getElementById("Disp1ModeSlider").checked = slider1;
+	document.getElementById("Disp1Incognito").checked = incognito1;
+	document.getElementById("Disp1ClearCache").checked = cc1;
+	document.getElementById("Disp1ClearData").checked = cd1;
+	document.getElementById("Disp2ModeSlider").checked = slider2;
+	document.getElementById("Disp2Incognito").checked = incognito2;
+	document.getElementById("Disp2ClearCache").checked = cc2;
+	document.getElementById("Disp2ClearData").checked = cd2;
+	document.getElementById("popup-form-kiosk").style.display = "block";
+}
+
+function closeKiosk() {
+	document.getElementById("cn_kiosk").value = "";
+	document.getElementById("popup-form-kiosk").style.display = "none";
+	document.location.reload();
+}
+
+function doKiosk(action,idx) {
+	var cn = document.getElementById("cn_kiosk").value;
+	var site = "https://[URL]";
+	var slider = false;
+	var incognito = true;
+	var cc = true;
+	var cd = true;
+	if ( "restart" == action ) {
+		cc = document.getElementById("RestartClearCache").checked;
+		cd = document.getElementById("RestartClearData").checked;
+	} else if ( "setUrl" == action || "preview" == action ) {
+		site = encodeURIComponent(document.getElementById("frm_kiosk_url_"+idx).value);
+		slider = document.getElementById("Disp"+idx+"ModeSlider").checked;
+		incognito = document.getElementById("Disp"+idx+"Incognito").checked;
+		cc = document.getElementById("Disp"+idx+"ClearCache").checked;
+		cd = document.getElementById("Disp"+idx+"ClearData").checked;
+	}
+	var url="service/actionKiosk.php?action="+action+"&cn="+cn+"&display="+idx;
+	url += "&url=" + site;
+	url += "&slider=" + slider;
+	url += "&incognito=" + incognito;
+	url += "&cc=" + cc;
+	url += "&cd=" + cd;
+	switch(action) {
+		case 'preview':
+			if ( true == slider )
+				window.open('https://[URL]/ttymgr/slider/slider.php?url='+site, '_blank');
+			else
+				window.open(document.getElementById("frm_kiosk_url_"+idx).value, '_blank');
+			break;
+		default:
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.open( "GET", url, false ); // false for synchronous request
+			xmlHttp.send( null );
+			alert(url + "\n" + xmlHttp.responseText);
+			break;
+	}
+}
+
+</script>

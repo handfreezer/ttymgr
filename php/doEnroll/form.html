@@ -1,0 +1,32 @@
+
+<script type="text/javascript">
+function openDoEnroll(ipcurrent) {
+	document.getElementById("id_ip_current").value = ipcurrent;
+	document.getElementById("popup-doEnroll").style.display = "block";
+}
+function closeDoEnroll() {
+	document.getElementById("popup-doEnroll").style.display = "none";
+}
+</script>
+
+<div class="enroll-popup">
+	<div class="enroll-form-popup" id="popup-doEnroll">
+		<form action="doEnroll/call.php" class="enroll-form-container">
+			<h2>Renseigner la conf d'enrollement</h2>
+			<label for="ipcurrent">
+				<strong>IP Actuelle</strong>
+			</label>
+			<input id="id_ip_current" type="text" placeholder="IP Actuelle" name="ip_current" required>
+			<label for="cn">
+				<strong>Racine CN</strong>
+			</label>
+			<input type="text" placeholder="Racine du CN" name="cn_name" required>
+			<label for="ipcible">
+				<strong>IP Cible</strong>
+			</label>
+			<input type="text" placeholder="IP Cible" name="ip_cible" required>
+			<button type="submit" class="btn">Lancer l'enrollement</button>
+		</form>
+		<button class="btn cancel" onclick="closeDoEnroll()">Annuler</button>
+	</div>
+</div>

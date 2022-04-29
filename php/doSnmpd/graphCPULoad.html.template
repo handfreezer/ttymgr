@@ -1,0 +1,3 @@
+<div class="tooltip">CPU Load
+  <span class="tooltiptext"><iframe src="https://[URL to dashboard with criteria]" width="450" height="200" frameborder="0"></iframe></span>
+</div>

@@ -1,0 +1,1 @@
+4,9,14,19,24,29,34,39,44,49,54,59 * * * * /root/wifi_scan.py >/tmp/wifi_scan.list 2>&1

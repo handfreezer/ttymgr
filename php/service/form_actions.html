@@ -1,0 +1,29 @@
+<div class="popup">
+	<div class="popup-form" id="popup-form-actions">
+		<form class="popup-form-container">
+			<h2>Panneau d'actions:</h2>
+			<label for="cn"><strong>Full CN: </strong></label>
+			<input type="text" placeholder="Complete CN" name="cn_name" id="cn_name" required><br>
+			<label for="action_todo"><strong>Requested action:</strong></label><br>
+			<center><table border=1>
+				<colgroup>
+					<col span="1" style="width: 50%;">
+					<col span="1" style="width: 50%;">
+				</colgroup>
+				<tr><td><button class="open-button"   onclick="doAction('snmpd')">Deploy SNMPD</button></td>
+					<td><button class="open-button"   onclick="doAction('filer')"     >Deploy Filer</button></td></tr>
+				<tr><td><button class="open-button"   onclick="doAction('kiosk')"     >Deploy Kiosk</button></td>
+					<td><button class="open-button"   onclick="doAction('fusioninventory')"     >Deploy FusionInventory</button></td></tr>
+				<tr><td><button class="open-button"   onclick="doAction('snmpd-wifiscan')" id='btn-snmpd-wifi'>Deploy Wifi Scan</button></td>
+					<td><button class="open-button"   onclick="doAction('snmp-gps')" id='btn-snmpd-gps'>Deploy GPS Scan</button></td></tr>
+				<tr><td><button class="open-button"   onclick="doAction('snmpd-tempscan')" id='btn-snmpd-temp'>Deploy Temp Scan</button></td>
+					<td><button class="open-button"   onclick="doAction('rpi-argononed')" id='btn-rpi-argononed'>Deploy Rpi-ArgonOne D.</button></td></tr>
+				<tr><td><button class="btn cancel" onclick="doAction('reboot')">REBOOT</button></td>
+					<td><button class="btn cancel" onclick="doAction('poweroff')">/!\ POWEROFF /!\</button></td></tr>
+				<tr><td><button class="delete-button" onclick="doAction('vpn_switch_access')" id='btn-vpn-access'>Dis-Enable</button></td>
+					<td><button class="delete-button" onclick="doAction('delete_tty')">Delete TTY</button></td></tr>
+				</table></center>
+		</form>
+		<button class="btn cancel" onclick="closeActions()">Fermer</button>
+	</div>
+</div>

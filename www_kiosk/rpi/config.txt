@@ -1,0 +1,57 @@
+# http://rpf.io/configtxt
+#hdmi_safe=1 => hdmi_force_hotplug=1, hdmi_ignore_edid=0xa5000080, config_hdmi_boost=4, hdmi_group=2, hdmi_mode=4, disable_overscan=0, overscan_left=24, overscan_right=24, overscan_top=24, overscan_bottom=24
+hdmi_safe=0
+hdmi_safe:0=0
+hdmi_safe:1=0
+
+#HDMI drive : 1=DVI (no sound), 2=HDMI (sound if possible)
+hdmi_drive=2
+hdmi_drive:0=2
+hdmi_drive:1=2
+
+#Force HDMI init even if no screen present
+hdmi_force_hotplug=1
+hdmi_force_hotplug:0=1
+hdmi_force_hotplug:1=1
+
+# Franck : CEA 1080p 50Hz 16:9
+hdmi_force_mode=1
+hdmi_force_mode:0=1
+hdmi_force_mode:1=1
+hdmi_group=1
+hdmi_group:0=1
+hdmi_group:1=1
+hdmi_mode=31
+hdmi_mode:0=31
+hdmi_mode:1=31
+
+cec_osd_name=Kiosk_global
+cec_osd_name:0=Kiosk_0
+cec_osd_name:1=Kiosk_1
+
+#config_hdmi_boost=7
+disable_overscan=1
+
+[pi4]
+# Enable DRM VC4 V3D driver on top of the dispmanx display stack
+dtoverlay=vc4-fkms-v3d
+max_framebuffers=2
+
+[all]
+dtoverlay=vc4-fkms-v3d
+gpu_mem=64
+#enable_uart=1
+
+ignore_lcd=1
+disable_touchscreen=1
+enable_dpi_lcd=0
+disable_splash=1
+boot_delay=5
+
+dtoverlay=disable-bt
+dtoverlay=disable-wifi
+dtparam=audio=off
+dtparam=i2c_arm=off
+dtparam=i2s=off
+dtparam=spi=off
+

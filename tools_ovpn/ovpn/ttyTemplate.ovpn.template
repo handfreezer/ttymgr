@@ -1,0 +1,12 @@
+client
+dev tun
+proto udp
+remote [NS] [port]
+resolv-retry infinite
+nobind
+
+cipher AES-256-GCM
+auth SHA512
+
+verb 3
+

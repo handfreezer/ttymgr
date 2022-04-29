@@ -1,0 +1,9 @@
+[server]
+secure_file_priv = /tmp
+
+[mysqld]
+secure_file_priv = /tmp
+
+[mariadb]
+secure_file_priv = /tmp
+

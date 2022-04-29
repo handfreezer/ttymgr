@@ -1,0 +1,19 @@
+{
+  "db": {
+    "user": "",
+    "password": "",
+    "host": "",
+    "port": 1234,
+    "database": ""
+  },
+  "influxdb": {
+    "host": "",
+    "port": 1234,
+    "username": "",
+    "password": "",
+    "database": ""
+  },
+  "snmp": {
+	"co": ""
+  }
+}

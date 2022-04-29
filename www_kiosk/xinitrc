@@ -1,0 +1,18 @@
+xset s off
+xset s noblank
+xset -dpms
+
+PATH_LOG_BASE="/tmp/kiosk_"
+
+xrandr --output HDMI-1 --mode 1920x1080 --rate 25 --pos 0x0
+xrandr --output HDMI-2 --mode 1920x1080 --rate 25 --pos 1920x0
+#xrandr --output HDMI-2 --above HDMI-1
+
+# start VNC server
+#exec x11vnc -find -forever -rfbauth ~/.vnc_passwd -rfbport 5900 &
+exec x11vnc -noipv6 -nolookup -forever -noncache -rfbauth ~/.vnc_passwd -rfbport 5901 -clip xinerama0 >>"${PATH_LOG_BASE}vnc01.log" 2>&1 &
+exec x11vnc -noipv6 -nolookup -forever -noncache -rfbauth ~/.vnc_passwd -rfbport 5902 -clip xinerama1 >>"${PATH_LOG_BASE}vnc02.log" 2>&1 &
+
+# start window-manager
+i3
+

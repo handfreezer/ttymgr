@@ -1,0 +1,26 @@
+<div class="popup">
+	<div class="popup-form" style='width:80%' id="popup-form-logs">
+		<!--div class="popup-form-container" id="id-popup-form-container"></div-->
+		<div id="id-popup-form-container"></div>
+		<button class="btn cancel" onclick="closeLogs()">Fermer</button>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+var tableLogs = new Tabulator("#id-popup-form-container", {
+    height:"400px",
+    layout:"fitDataStretch",
+    placeholder:"No Data Set",
+//    ajaxURL:"service/action.php?cn=&action=getLogs",
+    columns:[
+        {title:"Name", field:"cn", sorter:"string",width:"200",headerFilter:"input"},
+        {title:"TimeStamp", field:"dttime", sorter:"date",headerFilter:"input"},
+        {title:"Step", field:"step", sorter:"string",headerFilter:"input"},
+        {title:"Detail", field:"detail", sorter:"string",headerFilter:"input"},
+    ],
+});
+//tableLogs.setData("service/action.php?cn=&action=getLogs");
+
+</script>
+

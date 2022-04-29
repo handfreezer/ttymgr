@@ -1,0 +1,10 @@
+<br>
+	<center>
+		<a href="mapping.php">OPVN Status</a>
+		- <a href="service.php">Enrollé</a>
+		- <a href="guacamole/" target="_blank">Acces distant</a>
+		- <a href="grafana/" target="_blank">Grafana</a>
+		- <a href="service2.php">Enrollé v2</a>
+		- <a href="https://[URL]/slider/slider.php?url=[URL to JSON demo file]" target="_blank">Demo Slider</a>
+	</center>
+<br>

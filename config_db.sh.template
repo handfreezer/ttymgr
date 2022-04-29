@@ -1,0 +1,3 @@
+#!/bin/bash
+
+export URL_NS="BASE_OF_URL"

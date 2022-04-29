@@ -1,0 +1,77 @@
+* {
+box-sizing: border-box;
+}
+body {
+font-family: Roboto, Helvetica, sans-serif;
+}
+/* Fixer le bouton sur le côté gauche de la page */
+.open-btn {
+display: flex;
+justify-content: left;
+}
+/* Stylez et fixez le bouton sur la page */
+.open-button {
+background-color: #ffA833;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+opacity: 0.8;
+padding: 5px 5px;
+}
+/* Positionnez la forme Popup */
+.enroll-popup {
+position: relative;
+text-align: center;
+width: 100%;
+}
+/* Masquez la forme Popup */
+.enroll-form-popup {
+display: none;
+position: fixed;
+left: 45%;
+top:5%;
+transform: translate(-45%,5%);
+border: 2px solid #666;
+z-index: 9;
+}
+/* Styles pour le conteneur de forme */
+.enroll-form-container {
+max-width: 300px;
+padding: 20px;
+background-color: #fff;
+}
+/* Largeur complète pour les champs de saisie */
+.enroll-form-container input[type=text], .form-container input[type=password] {
+width: 100%;
+padding: 10px;
+margin: 5px 0 22px 0;
+border: none;
+background: #eee;
+}
+/*Quand les entrées sont concentrées, faites quelque chose */
+.enroll-form-container input[type=text]:focus, .form-container input[type=password]:focus {
+background-color: #ddd;
+outline: none;
+}
+/* Stylez le bouton de connexion*/
+.enroll-form-popup .btn {
+background-color: #8ebf42;
+color: #fff;
+padding: 12px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-bottom:10px;
+opacity: 0.8;
+}
+/* Stylez le bouton pour annuler */
+.enroll-form-popup .cancel {
+background-color: #cc0000;
+}
+/* Planez les effets pour les boutons */
+.enroll-form-popup .btn:hover, .open-button:hover {
+background-color: #0000FF;
+opacity: 1;
+}
+
