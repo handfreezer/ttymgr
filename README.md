@@ -1,6 +1,6 @@
 # **Projet ttyMgr & Kiosk**
 
-**Ce projet N'EST PAS libre de droit, d'usage, ... Il faut un accord écrit de l'auteur pour une quelconque utilisation même partielle.**
+**Ce projet N'EST PAS libre de droit, d'usage,... Il faut un accord écrit de l'auteur pour une quelconque utilisation avec un aspect finanacier : que ce soit de vente de produit ou de service. Il doit toujours être fait mention du projet d'origine de manière claire. Toute modification doit faire l'objet d'un PR ici.**
 
 Ce projet a pour objectif de faire un POC fonctionnel, scalable et sécurisable d'un point de concentration de pilotage de console distante graphique.
 
